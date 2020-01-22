@@ -13,7 +13,7 @@ class Menu extends Component {
               <div className="main-menu hidden-xs">
                 <nav>
                   <ul>
-                    <li><NavLink to="/" exact="true">Home</NavLink></li>
+                    <li><NavLink to="/" exact={true} >Home</NavLink></li>
                     <li><NavLink to="/Men">Men</NavLink></li>
                     <li><NavLink to="/Women">Women</NavLink></li>
                     <li><NavLink to="/Kids">Kids</NavLink></li>

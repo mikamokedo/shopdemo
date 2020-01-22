@@ -10,14 +10,14 @@ class Footer extends Component {
                   <div className="col-md-3 col-sm-12">
                     <div className="footer-info-card">
                       <div className="footer-logo">
-                        <a href="index.html"><img src="img/footer-logo.png" alt="logo" /></a>
+                        <a href="index.html"><img src="/img/footer-logo.png" alt="logo" /></a>
                       </div>
                       <p>Lorem ipsum dolor sit amet, coetuer adipiscing elit. Aenean comodo liula eget dolor. Aenean massa. Cum sociis natoque penatibus.</p>
                       <ul className="list-inline">
-                        <li><a href="hihi"><img src="img/visa-card/visa-card-1.png" alt="card" className="img-responsive" /></a></li>
-                        <li><a href="hihi"><img src="img/visa-card/visa-card-2.png" alt="card" className="img-responsive" /></a></li>
-                        <li><a href="hihi"><img src="img/visa-card/visa-card-3.png" alt="card" className="img-responsive" /></a></li>
-                        <li><a href="hihi"><img src="img/visa-card/visa-card-4.png" alt="card" className="img-responsive" /></a></li>
+                        <li><a href="hihi"><img src="/img/visa-card/visa-card-1.png" alt="card" className="img-responsive" /></a></li>
+                        <li><a href="hihi"><img src="/img/visa-card/visa-card-2.png" alt="card" className="img-responsive" /></a></li>
+                        <li><a href="hihi"><img src="/img/visa-card/visa-card-3.png" alt="card" className="img-responsive" /></a></li>
+                        <li><a href="hihi"><img src="/img/visa-card/visa-card-4.png" alt="card" className="img-responsive" /></a></li>
                       </ul>
                     </div>
                   </div>

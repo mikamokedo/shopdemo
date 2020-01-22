@@ -4,16 +4,16 @@ import Menu from './components/Menu.js';
 import Footer from './components/Footer.js';
 import Index from './components/Index.js';
 import routers from './routers/routers.js';
-import firebaseApp from './firebase.js';
+import firebase from './firebaseConfig';
+import Loading from './components/Loading';
+import {connect} from 'react-redux';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link,
-  useRouteMatch
+  Route
 } from "react-router-dom";
 
-class Checkout extends Component {
+class App extends Component {
   printRouter = () =>{
     let xhtml = null;
     
@@ -27,14 +27,25 @@ class Checkout extends Component {
     return xhtml;
   }
 
+showLoadingAnimation = () =>{
+    var loadingStatus =  this.props.loadingStatus;
+    let xhtml = null;
+    xhtml =  (loadingStatus.loading) ? <Loading/> : null;
+    return xhtml;
+  }
+
+
+
+
+
+
+
   render() {
-  let conso =  firebaseApp.database().ref().child('tasklist');
-conso.once('value',snap =>
-  console.log(snap.value())
-)
+
       return(
     <div className="App">
       <Router>
+        {this.showLoadingAnimation()}
       <Header />
     
      
@@ -42,11 +53,22 @@ conso.once('value',snap =>
        {this.printRouter()}   
        </Switch>
 
-       <Footer />   
+       <Footer />  
        </Router>
     </div>
             );
           }
       }
-      
-      export default Checkout;
+      const mapStateToProps = (state, ownProps) => {
+        return {
+            loadingStatus : state.loading,
+            listProducts : state.ListProducts
+        }
+      }
+const mapDispatchToProps = (dispatch, ownProps) => {
+  return {
+
+  }
+}
+
+      export default connect(mapStateToProps, mapDispatchToProps)(App)

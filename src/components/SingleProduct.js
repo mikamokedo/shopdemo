@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 class SingleProduct extends Component {
+
     render() {
+      const id = this.props.match.match.params.id;
+
         return(
             <div className="product-item-area">
             <div className="container">
@@ -49,32 +52,24 @@ class SingleProduct extends Component {
                   </div>
                   <div className="add-shop">
                     <div className="add-kids single-add">
-                      <a href="#"><img src="img/banner/kids-ad.jpg" alt="add" /></a>
+                      <a href="#"><img src="../img/banner/kids-ad.jpg" alt="add" /></a>
                     </div>
                     <div className="add-dress single-add">
-                      <a href="#"><img src="img/banner/kids-ad-2.jpg" alt="add" /></a>
+                      <a href="#"><img src="../img/banner/kids-ad-2.jpg" alt="add" /></a>
                     </div>
                   </div>
                 </div>
-                <div className="col-md-9 col-sm-8">
+                <div className="col-md-9 col-sm-8 mt-2">
                   <div className="row">
                     <div className="col-md-5 col-sm-5">
                       <div className="product-item-tab">
                         {/* Tab panes */}
                         <div className="single-tab-content">
                           <div className="tab-content">
-                            <div role="tabpanel" className="tab-pane active" id="img-one"><img src="img/single-product/single-product-1.jpg" alt="tab-img" /></div>
-                            <div role="tabpanel" className="tab-pane" id="img-two"><img src="img/single-product/single-product-2.jpg" alt="tab-img" /></div>
-                            <div role="tabpanel" className="tab-pane" id="img-three"><img src="img/single-product/single-product-1.jpg" alt="tab-img" /></div>
+                            <div role="tabpanel" className="tab-pane active" id="img-one"><img src="../img/single-product/single-product-1.jpg" alt="tab-img" /></div>
+                            <div role="tabpanel" className="tab-pane" id="img-two"><img src="../img/single-product/single-product-2.jpg" alt="tab-img" /></div>
+                            <div role="tabpanel" className="tab-pane" id="img-three"><img src="../img/single-product/single-product-1.jpg" alt="tab-img" /></div>
                           </div>
-                        </div>
-                        {/* Nav tabs */}
-                        <div className="single-tab-img">
-                          <ul className="nav nav-tabs" role="tablist">
-                            <li role="presentation" className="active"><a href="#img-one" role="tab" data-toggle="tab"><img src="img/single-product/s1.jpg" alt="tab-img" /></a></li>
-                            <li role="presentation"><a href="#img-two" role="tab" data-toggle="tab"><img src="img/single-product/s2.jpg" alt="tab-img" /></a></li>
-                            <li role="presentation" className="tab-last-li"><a href="#img-three" role="tab" data-toggle="tab"><img src="img/single-product/s3.jpg" alt="tab-img" /></a></li>
-                          </ul>
                         </div>
                       </div>
                     </div>
@@ -182,8 +177,8 @@ class SingleProduct extends Component {
                                       <div className="single-product">
                                         <div className="single-product-img">
                                           <a href="#">
-                                            <img className="primary-img" src="img/product/single-product-1.jpg" alt="product" />
-                                            <img className="secondary-img" src="img/product/kids-1.jpg" alt="product" />
+                                            <img className="primary-img" src="../img/product/single-product-1.jpg" alt="product" />
+                                            <img className="secondary-img" src="../img/product/kids-1.jpg" alt="product" />
                                           </a>
                                           <div className="single-product-action">
                                             <a href="#"><i className="fa fa-external-link" /></a>
@@ -204,8 +199,8 @@ class SingleProduct extends Component {
                                       <div className="single-product">
                                         <div className="single-product-img">
                                           <a href="#">
-                                            <img className="primary-img" src="img/product/kids-2.jpg" alt="product" />
-                                            <img className="secondary-img" src="img/product/single-product-2.jpg" alt="product" />
+                                            <img className="primary-img" src="../img/product/kids-2.jpg" alt="product" />
+                                            <img className="secondary-img" src="../img/product/single-product-2.jpg" alt="product" />
                                           </a>
                                           <div className="single-product-action">
                                             <a href="#"><i className="fa fa-external-link" /></a>
@@ -226,8 +221,8 @@ class SingleProduct extends Component {
                                       <div className="single-product">
                                         <div className="single-product-img">
                                           <a href="#">
-                                            <img className="primary-img" src="img/product/kids-4.jpg" alt="product" />
-                                            <img className="secondary-img" src="img/product/men-2.jpg" alt="product" />
+                                            <img className="primary-img" src="../img/product/kids-4.jpg" alt="product" />
+                                            <img className="secondary-img" src="../img/product/men-2.jpg" alt="product" />
                                           </a>
                                           <div className="single-product-action">
                                             <a href="#"><i className="fa fa-external-link" /></a>
@@ -248,8 +243,8 @@ class SingleProduct extends Component {
                                       <div className="single-product">
                                         <div className="single-product-img">
                                           <a href="#">
-                                            <img className="primary-img" src="img/product/single-product-1.jpg" alt="product" />
-                                            <img className="secondary-img" src="img/product/kids-1.jpg" alt="product" />
+                                            <img className="primary-img" src="../img/product/single-product-1.jpg" alt="product" />
+                                            <img className="secondary-img" src="../img/product/kids-1.jpg" alt="product" />
                                           </a>
                                           <div className="single-product-action">
                                             <a href="#"><i className="fa fa-external-link" /></a>
@@ -270,8 +265,8 @@ class SingleProduct extends Component {
                                       <div className="single-product">
                                         <div className="single-product-img">
                                           <a href="#">
-                                            <img className="primary-img" src="img/product/single-product-2.jpg" alt="product" />
-                                            <img className="secondary-img" src="img/product/women-2.jpg" alt="product" />
+                                            <img className="primary-img" src="../img/product/single-product-2.jpg" alt="product" />
+                                            <img className="secondary-img" src="../img/product/women-2.jpg" alt="product" />
                                           </a>
                                           <div className="single-product-action">
                                             <a href="#"><i className="fa fa-external-link" /></a>
@@ -292,8 +287,8 @@ class SingleProduct extends Component {
                                       <div className="single-product">
                                         <div className="single-product-img">
                                           <a href="#">
-                                            <img className="primary-img" src="img/product/single-product-3.jpg" alt="product" />
-                                            <img className="secondary-img" src="img/product/men-2.jpg" alt="product" />
+                                            <img className="primary-img" src="../img/product/single-product-3.jpg" alt="product" />
+                                            <img className="secondary-img" src="../img/product/men-2.jpg" alt="product" />
                                           </a>
                                           <div className="single-product-action">
                                             <a href="#"><i className="fa fa-external-link" /></a>

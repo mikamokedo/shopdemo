@@ -26,9 +26,9 @@ const routers = [
         component: () => <Contact />
     },
     {
-        path:'/single-product',
+        path:'/:cate/:slug.:id.html',
         exact: true,
-        component: () => <SingleProduct />
+        component: (match) => <SingleProduct match={match}/>
     },
     {
         path:'',

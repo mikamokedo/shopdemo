@@ -12,7 +12,7 @@ class Header extends Component {
                 <div className="header-top-left">
                   <div className="header-top-menu">
                     <ul className="list-inline">
-                      <li><img src="img/flag.png" alt="flag" /></li>
+                      <li><img src="/img/flag.png" alt="flag" /></li>
                       <li className="dropdown"><a href="hihi" data-toggle="dropdown">English</a>
                         <ul className="dropdown-menu">
                           <li><a href="hihi">Spanish</a></li>
@@ -50,7 +50,7 @@ class Header extends Component {
             <div className="row">
               <div className="col-md-2 col-sm-2 col-xs-12">
                 <div className="header-logo">
-                  <a href="index.html"><img src="img/logo.png" alt="logo" /></a>
+                  <a href="index.html"><img src="/img/logo.png" alt="logo" /></a>
                 </div>
               </div>
               <div className="col-md-10 col-sm-10 col-xs-12">
@@ -85,7 +85,7 @@ class Header extends Component {
                             <div className="header-chart-dropdown">
                               <div className="header-chart-dropdown-list">
                                 <div className="dropdown-chart-left floatleft">
-                                  <a href="hihi"><img src="img/product/best-product-1.png" alt="list" /></a>
+                                  <a href="hihi"><img src="/img/product/best-product-1.png" alt="list" /></a>
                                 </div>
                                 <div className="dropdown-chart-right">
                                   <h2><a href="hihi">Feugiat justo lacinia</a></h2>
@@ -95,7 +95,7 @@ class Header extends Component {
                               </div>
                               <div className="header-chart-dropdown-list">
                                 <div className="dropdown-chart-left floatleft">
-                                  <a href="hihi"><img src="img/product/best-product-2.png" alt="list" /></a>
+                                  <a href="hihi"><img src="/img/product/best-product-2.png" alt="list" /></a>
                                 </div>
                                 <div className="dropdown-chart-right">
                                   <h2><a href="hihi">Aenean eu tristique</a></h2>
