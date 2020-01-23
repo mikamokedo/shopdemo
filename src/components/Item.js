@@ -37,10 +37,9 @@ class Item extends Component {
             <div className="owl-item"><div className="col-md-4">
             <div className="single-product">
               <div className="single-product-img">
-                <a href="hihi">
+              <Link to={`/${this.props.item.cate}/${this.ChangeToSlug(this.props.item.name)}.${this.props.item.id}.html`}>
                   <img className="primary-img" src={this.props.item.image} alt="product" />
-                  <img className="secondary-img" src="img/product/single-product-1.jpg" alt="product" />
-                </a>
+                  </Link>
                 <div className="single-product-action">
                   <Link to={`/${this.props.item.cate}/${this.ChangeToSlug(this.props.item.name)}.${this.props.item.id}.html`}><i className="fa fa-external-link" /></Link>
                   <a href="hihi"><i className="fa fa-shopping-cart" /></a>

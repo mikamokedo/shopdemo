@@ -22,3 +22,20 @@ export const feetListProductsError = (error) =>{
         }
     }
 };
+
+export const feetSingleProducts = (id) =>{
+    return {
+        type: CONSTANT.FEET_SINGLE_PRODUCTS,
+        payload:{
+            id
+        }
+    }
+};
+export const feetSingleProductsSuccess = (item) =>{
+    return {
+        type: CONSTANT.FEET_SINGLE_PRODUCTS_SUCCESS,
+        payload :{
+            item
+        }
+    }
+};

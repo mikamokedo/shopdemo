@@ -1,8 +1,38 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import {feetSingleProducts} from '../action/products';
 class SingleProduct extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      singleItem : null
+    }
+  }
+  
 
-    render() {
+    componentWillMount() {
       const id = this.props.match.match.params.id;
+      this.props.putIdTosaga(id);
+    }
+
+    prinStar = () =>{
+      let xhtml = [];
+    const  numberstar = this.props.singleProductsFromStore.rate;
+      for (let index = 0; index < numberstar; index++) {
+            xhtml.push(<a href="#"><i className="fa fa-star" /></a>);
+        
+      }
+      for (let index2 = 0; index2 < 5 - numberstar; index2++) {
+        xhtml.push(<a href="#"><i className="fa fa-star-o" /></a>);
+    
+  }
+      return xhtml;
+
+    }
+    render() {
+     const singleItem = this.props.singleProductsFromStore;
+
 
         return(
             <div className="product-item-area">
@@ -26,30 +56,7 @@ class SingleProduct extends Component {
                       </ul>
                     </div>
                   </div>
-                  <div className="price-filter">
-                    <h2>Filter by price</h2>
-                    <div id="slider-range" className="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"><div className="ui-slider-range ui-widget-header ui-corner-all" style={{left: '17.6%', width: '82.4%'}} /><span className="ui-slider-handle ui-state-default ui-corner-all" tabIndex={0} style={{left: '17.6%'}} /><span className="ui-slider-handle ui-state-default ui-corner-all" tabIndex={0} style={{left: '100%'}} /></div>
-                    <button className="btn btn-default">Filter</button>
-                    <p>
-                      <label htmlFor="amount">Price:</label>
-                      <input type="text" id="amount" readOnly style={{border: 0, color: '#f6931f', fontWeight: 'bold'}} />
-                    </p>
-                  </div>
-                  <div className="filter-size-area">
-                    <h2>Filter by Size</h2>
-                    <div className="filter-size">
-                      <div className="filter-size-left">
-                        <p>M (6)</p>
-                        <p>X (7)</p>
-                        <p>XS (10)</p>
-                      </div>
-                      <div className="filter-size-right">
-                        <p>M (6)</p>
-                        <p>X (7)</p>
-                        <p>XS (10)</p>
-                      </div>
-                    </div>
-                  </div>
+
                   <div className="add-shop">
                     <div className="add-kids single-add">
                       <a href="#"><img src="../img/banner/kids-ad.jpg" alt="add" /></a>
@@ -66,9 +73,7 @@ class SingleProduct extends Component {
                         {/* Tab panes */}
                         <div className="single-tab-content">
                           <div className="tab-content">
-                            <div role="tabpanel" className="tab-pane active" id="img-one"><img src="../img/single-product/single-product-1.jpg" alt="tab-img" /></div>
-                            <div role="tabpanel" className="tab-pane" id="img-two"><img src="../img/single-product/single-product-2.jpg" alt="tab-img" /></div>
-                            <div role="tabpanel" className="tab-pane" id="img-three"><img src="../img/single-product/single-product-1.jpg" alt="tab-img" /></div>
+                            <div role="tabpanel" className="tab-pane active" id="img-one"><img src={singleItem.image} alt="tab-img" /></div>
                           </div>
                         </div>
                       </div>
@@ -76,23 +81,18 @@ class SingleProduct extends Component {
                     <div className="col-md-7 col-sm-7">
                       <div className="product-tab-content">
                         <div className="product-tab-header">
-                          <h1>Baby New Style Jackets</h1>
+    <h1>{singleItem.name}</h1>
                           <div className="best-product-rating">
-                            <a href="#"><i className="fa fa-star" /></a>
-                            <a href="#"><i className="fa fa-star" /></a>
-                            <a href="#"><i className="fa fa-star" /></a>
-                            <a href="#"><i className="fa fa-star" /></a>
-                            <a href="#"><i className="fa fa-star" /></a>
-                            <p>(3 costomar review)</p>
+                  {this.prinStar()}
                           </div>
-                          <h3>$52.00</h3>
+                          <h3>${singleItem.price}</h3>
                         </div>
                         <div className="product-item-code">
                           <p>Item Code  :   #897896</p>
-                          <p>Availability :   In stock</p>
+                          <p>Availability :   {singleItem.quantity}</p>
                         </div>
                         <div className="product-item-details">
-                          <p>Nulla quis lorem ut libero malesuada feugiat. Donec sollicitudin molestie malesuada. Mauris. </p>
+                          <p>{singleItem.descript}</p>
                         </div>
                         <div className="size-chart">
                           <p>Size Chart: <i className="fa fa-plus" /></p>
@@ -139,33 +139,7 @@ class SingleProduct extends Component {
                       </div>
                     </div>
                   </div>
-                  <div className="row">
-                    <div className="col-md-12">
-                      <div className="description-tab">
-                        {/* Nav tabs */}
-                        <ul className="nav nav-tabs" role="tablist">
-                          <li role="presentation" className="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
-                          <li role="presentation"><a href="#information" role="tab" data-toggle="tab">Addisonal information</a></li>
-                          <li role="presentation"><a href="#reviews" role="tab" data-toggle="tab">Reviews (3)</a></li>
-                        </ul>
-                        {/* Tab panes */}
-                        <div className="tab-content">
-                          <div role="tabpanel" className="tab-pane active" id="description">
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                          </div>
-                          <div role="tabpanel" className="tab-pane" id="information">
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus.</p>
-                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. </p>
-                          </div>
-                          <div role="tabpanel" className="tab-pane" id="reviews">
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
-                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+
                   <div className="row">
                     <div className="col-md-12">
                       <div className="single-product-slider similar-product">
@@ -319,5 +293,15 @@ class SingleProduct extends Component {
             );
         }
     }
-    
-    export default SingleProduct;
+    const mapStateToProps = (state) => {
+      return {
+        singleProductsFromStore : state.singleProducts
+      }
+    }
+    const mapDispatchToProps = (dispatch) => {
+      return {
+      putIdTosaga: bindActionCreators(feetSingleProducts,dispatch)
+      }
+    }
+
+    export default connect(mapStateToProps, mapDispatchToProps)(SingleProduct)

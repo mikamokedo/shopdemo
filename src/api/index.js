@@ -13,3 +13,16 @@ export const  getMethod = () =>{
   return xhtml;
 
 }
+
+export const getSingleMethod = (id) =>{
+  let xhtml =  firebase.firestore().collection("listproduct").doc(id).get().
+   then((querySnapshot) => {
+     return querySnapshot.data();
+  
+ }).catch((erro) =>{
+ 
+     return erro;
+ })
+   return xhtml;
+ 
+ };
