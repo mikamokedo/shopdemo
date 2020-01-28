@@ -1,6 +1,27 @@
 import React, { Component } from 'react';
-import Menu from './Menu.js'
+import Menu from './Menu.js';
+import { bindActionCreators } from 'redux';
+import {fillterText,fillterSelect} from '../action/fillter';
+import {connect} from 'react-redux';
 class Header extends Component {
+  onSelect = (event) =>{
+    let name = event.target.name;
+    let fill = event.target.value;
+    let value ={
+      [name] : fill
+    }
+    this.props.fillterSelectAction(value);
+  }
+  onFillerName = (event) =>{
+    let name = event.target.name;
+    let fill = event.target.value;
+    let value ={
+      [name] : fill
+    }
+    this.props.fillterTextAction(value);
+  }
+
+
     render() {
         return (
           <div>
@@ -59,20 +80,17 @@ class Header extends Component {
                     <ul className="list-inline">
                       <li><i className="fa fa-search" /></li>
                       <li>
-                        <select>
-                          <option value="All Categories">All Categories</option>
-                          <option value="Categorie One">Categorie One</option>
-                          <option value="Categorie Two">Categorie Two</option>
-                          <option value="Categorie Three">Categorie Three</option>
-                          <option value="Categorie Four">Categorie Four</option>
-                          <option value="Categorie Five">Categorie Five</option>
+                        <select name="fillCate" onChange={(event) => this.onSelect(event)}>
+                          <option value="men">MEN</option>
+                          <option value="women">WOMEN</option>
+                          <option value="kid">KID</option>
                         </select>
                       </li>
                     </ul>
                   </div>
                   <div className="header-search">
                     <form action="#">
-                      <input type="text" placeholder="My Search" />
+                      <input type="text" placeholder="My Search" onChange={(event) => this.onFillerName(event)} name="fillerName"/>
                       <button type="button"><i className="fa fa-search" /></button>
                     </form>
                   </div>
@@ -127,5 +145,19 @@ class Header extends Component {
         );
     }
 }
+const mapStateToProps = (state) =>{
+  return{
 
-export default Header;
+  }
+}
+const mapDispatchToProps = (dispatch) =>{
+  return {
+    fillterTextAction:bindActionCreators(fillterText,dispatch),
+    fillterSelectAction:bindActionCreators(fillterSelect,dispatch)
+  }
+  
+} 
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header)

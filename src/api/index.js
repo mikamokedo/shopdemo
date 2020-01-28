@@ -26,3 +26,15 @@ export const getSingleMethod = (id) =>{
    return xhtml;
  
  };
+
+
+ export const fillterbycate = (cate) =>{
+    firebase.firestore().collection("listproduct").where("cate", "==", cate).onSnapshot(function(querySnapshot) {
+        var cities = [];
+        querySnapshot.forEach(function(doc) {
+            cities.push(doc.data());
+        });
+        return cities;
+    });
+  
+ }
