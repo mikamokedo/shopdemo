@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  BrowserRouter as Router,
   NavLink
 } from "react-router-dom";
 class Menu extends Component {
@@ -14,9 +13,6 @@ class Menu extends Component {
                 <nav>
                   <ul>
                     <li><NavLink to="/" exact={true} >Home</NavLink></li>
-                    <li><NavLink to="/Men">Men</NavLink></li>
-                    <li><NavLink to="/Women">Women</NavLink></li>
-                    <li><NavLink to="/Kids">Kids</NavLink></li>
                     <li><NavLink to="/contact">contact</NavLink></li>
                   </ul>
                 </nav>

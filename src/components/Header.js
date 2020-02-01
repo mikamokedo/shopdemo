@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Menu from './Menu.js';
 import { bindActionCreators } from 'redux';
-import {fillterText,fillterSelect} from '../action/fillter';
+import {fillterText,fillterSelect,fillterSubmit} from '../action/fillter';
 import {connect} from 'react-redux';
+import Cart from './Cart';
 class Header extends Component {
   onSelect = (event) =>{
     let name = event.target.name;
@@ -20,7 +21,9 @@ class Header extends Component {
     }
     this.props.fillterTextAction(value);
   }
-
+  submitSearch = () =>{
+    this.props.fillterSubmitAction();
+  }
 
     render() {
         return (
@@ -81,6 +84,7 @@ class Header extends Component {
                       <li><i className="fa fa-search" /></li>
                       <li>
                         <select name="fillCate" onChange={(event) => this.onSelect(event)}>
+                        <option value="all">Select Category</option>
                           <option value="men">MEN</option>
                           <option value="women">WOMEN</option>
                           <option value="kid">KID</option>
@@ -91,47 +95,10 @@ class Header extends Component {
                   <div className="header-search">
                     <form action="#">
                       <input type="text" placeholder="My Search" onChange={(event) => this.onFillerName(event)} name="fillerName"/>
-                      <button type="button"><i className="fa fa-search" /></button>
+                      <button type="button" onClick ={() => this.submitSearch()}><i className="fa fa-search"/></button>
                     </form>
                   </div>
-                  <div className="header-chart">
-                    <ul className="list-inline">
-                      <li><a href="hihi"><i className="fa fa-cart-arrow-down" /></a></li>
-                      <li className="chart-li"><a href="hihi">My cart</a>
-                        <ul>
-                          <li>
-                            <div className="header-chart-dropdown">
-                              <div className="header-chart-dropdown-list">
-                                <div className="dropdown-chart-left floatleft">
-                                  <a href="hihi"><img src="/img/product/best-product-1.png" alt="list" /></a>
-                                </div>
-                                <div className="dropdown-chart-right">
-                                  <h2><a href="hihi">Feugiat justo lacinia</a></h2>
-                                  <h3>Qty: 1</h3>
-                                  <h4>£80.00</h4>
-                                </div>
-                              </div>
-                              <div className="header-chart-dropdown-list">
-                                <div className="dropdown-chart-left floatleft">
-                                  <a href="hihi"><img src="/img/product/best-product-2.png" alt="list" /></a>
-                                </div>
-                                <div className="dropdown-chart-right">
-                                  <h2><a href="hihi">Aenean eu tristique</a></h2>
-                                  <h3>Qty: 1</h3>
-                                  <h4>£70.00</h4>
-                                </div>
-                              </div>
-                              <div className="chart-checkout">
-                                <p>subtotal<span>£150.00</span></p>
-                                <button type="button" className="btn btn-default">Chckout</button>
-                              </div>
-                            </div> 
-                          </li> 
-                        </ul> 
-                      </li>
-                      <li><a href="hihi">2 items</a></li>
-                    </ul>
-                  </div>
+                <Cart />
                 </div>
               </div>
             </div>
@@ -147,13 +114,16 @@ class Header extends Component {
 }
 const mapStateToProps = (state) =>{
   return{
-
+    fillterValueText : state.fillterValueText,
+    fillterValueSelect : state.fillterValueSelect,
   }
 }
 const mapDispatchToProps = (dispatch) =>{
   return {
     fillterTextAction:bindActionCreators(fillterText,dispatch),
-    fillterSelectAction:bindActionCreators(fillterSelect,dispatch)
+    fillterSelectAction:bindActionCreators(fillterSelect,dispatch),
+    fillterSubmitAction:bindActionCreators(fillterSubmit,dispatch)
+
   }
   
 } 

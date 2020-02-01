@@ -16,15 +16,15 @@ class SingleProduct extends Component {
       this.props.putIdTosaga(id);
     }
 
+
     prinStar = () =>{
       let xhtml = [];
     const  numberstar = this.props.singleProductsFromStore.rate;
       for (let index = 0; index < numberstar; index++) {
-            xhtml.push(<a href="#"><i className="fa fa-star" /></a>);
-        
+            xhtml.push(<a href="/"><i className="fa fa-star" /></a>);   
       }
       for (let index2 = 0; index2 < 5 - numberstar; index2++) {
-        xhtml.push(<a href="#"><i className="fa fa-star-o" /></a>);
+        xhtml.push(<a href="/"><i className="fa fa-star-o" /></a>);
     
   }
       return xhtml;
@@ -43,26 +43,17 @@ class SingleProduct extends Component {
                     <div className="product-type">
                       <h2>Product Type</h2>
                       <ul>
-                        <li><a href="#"><i className="fa fa-angle-right" />Dresses</a></li>
-                        <li><a href="#" className="active"><i className="fa fa-angle-right" />Shirts</a></li>
-                        <li><a href="#"><i className="fa fa-angle-right" />Coats</a></li>
-                        <li><a href="#"><i className="fa fa-angle-right" />Jackets</a></li>
-                        <li><a href="#"><i className="fa fa-angle-right" />Storts</a></li>
-                        <li><a href="#"><i className="fa fa-angle-right" />Jeans</a></li>
-                        <li><a href="#"><i className="fa fa-angle-right" />Skirts</a></li>
-                        <li><a href="#"><i className="fa fa-angle-right" />Lingeris</a></li>
-                        <li><a href="#"><i className="fa fa-angle-right" />Shoes</a></li>
-                        <li><a href="#"><i className="fa fa-angle-right" />Bags</a></li>
+                        <li><a href="/"><i className="fa fa-angle-right" />Dresses</a></li>
+                        <li><a href="/" className="active"><i className="fa fa-angle-right" />Shirts</a></li>
+                        <li><a href="/"><i className="fa fa-angle-right" />Coats</a></li>
+                        <li><a href="/"><i className="fa fa-angle-right" />Jackets</a></li>
+                        <li><a href="/"><i className="fa fa-angle-right" />Storts</a></li>
+                        <li><a href="/"><i className="fa fa-angle-right" />Jeans</a></li>
+                        <li><a href="/"><i className="fa fa-angle-right" />Skirts</a></li>
+                        <li><a href="/"><i className="fa fa-angle-right" />Lingeris</a></li>
+                        <li><a href="/"><i className="fa fa-angle-right" />Shoes</a></li>
+                        <li><a href="/"><i className="fa fa-angle-right" />Bags</a></li>
                       </ul>
-                    </div>
-                  </div>
-
-                  <div className="add-shop">
-                    <div className="add-kids single-add">
-                      <a href="#"><img src="../img/banner/kids-ad.jpg" alt="add" /></a>
-                    </div>
-                    <div className="add-dress single-add">
-                      <a href="#"><img src="../img/banner/kids-ad-2.jpg" alt="add" /></a>
                     </div>
                   </div>
                 </div>
@@ -107,15 +98,7 @@ class SingleProduct extends Component {
                         </div>
                         <div className="available-option">
                           <h2>Available Options:</h2>
-                          <div className="color-option fix">
-                            <p>Color:</p>
-                            <a href="#" className="color-1" />
-                            <a href="#" className="color-2" />
-                            <a href="#" className="color-3" />
-                            <a href="#" className="color-4" />
-                            <a href="#" className="color-5" />
-                            <a href="#" className="color-6" />
-                          </div>
+
                           <div className="size-option fix">
                             <p>Size:</p>
                             <select>
@@ -127,11 +110,11 @@ class SingleProduct extends Component {
                           </div>
                           <div className="wishlist-icon">
                             <div className="single-wishlist">
-                              <a href="#"><i className="fa fa-heart" /></a>
+                              <a href="/"><i className="fa fa-heart" /></a>
                               <p>wishlist</p>
                             </div>
                             <div className="single-wishlist">
-                              <a href="#"><i className="fa fa-signal" /></a>
+                              <a href="/"><i className="fa fa-signal" /></a>
                               <p>Compare</p>
                             </div>
                           </div>
@@ -140,152 +123,6 @@ class SingleProduct extends Component {
                     </div>
                   </div>
 
-                  <div className="row">
-                    <div className="col-md-12">
-                      <div className="single-product-slider similar-product">
-                        <div className="product-items">
-                          <h2 className="product-header">Similar PRODUCTS</h2>
-                          <div className="row">
-                            <div id="singleproduct-slider" className="owl-carousel owl-theme" style={{opacity: 1, display: 'block'}}>
-                              <div className="owl-wrapper-outer"><div className="owl-wrapper" style={{width: '3516px', left: '0px', display: 'block', transition: 'all 0ms ease 0s', transform: 'translate3d(0px, 0px, 0px)'}}><div className="owl-item" style={{width: '293px'}}><div className="col-md-4">
-                                      <div className="single-product">
-                                        <div className="single-product-img">
-                                          <a href="#">
-                                            <img className="primary-img" src="../img/product/single-product-1.jpg" alt="product" />
-                                            <img className="secondary-img" src="../img/product/kids-1.jpg" alt="product" />
-                                          </a>
-                                          <div className="single-product-action">
-                                            <a href="#"><i className="fa fa-external-link" /></a>
-                                            <a href="#"><i className="fa fa-shopping-cart" /></a>
-                                          </div>
-                                        </div>
-                                        <div className="single-product-content">
-                                          <div className="product-content-left">
-                                            <h2><a href="#">EXCLUSIVE STYLE</a></h2>
-                                            <p>Jacket’s</p>
-                                          </div>
-                                          <div className="product-content-right">
-                                            <h3>$27.00</h3>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div></div><div className="owl-item" style={{width: '293px'}}><div className="col-md-4">
-                                      <div className="single-product">
-                                        <div className="single-product-img">
-                                          <a href="#">
-                                            <img className="primary-img" src="../img/product/kids-2.jpg" alt="product" />
-                                            <img className="secondary-img" src="../img/product/single-product-2.jpg" alt="product" />
-                                          </a>
-                                          <div className="single-product-action">
-                                            <a href="#"><i className="fa fa-external-link" /></a>
-                                            <a href="#"><i className="fa fa-shopping-cart" /></a>
-                                          </div>
-                                        </div>
-                                        <div className="single-product-content">
-                                          <div className="product-content-left">
-                                            <h2><a href="#">EXCLUSIVE STYLE</a></h2>
-                                            <p>Jacket’s</p>
-                                          </div>
-                                          <div className="product-content-right">
-                                            <h3>$27.00</h3>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div></div><div className="owl-item" style={{width: '293px'}}><div className="col-md-4">
-                                      <div className="single-product">
-                                        <div className="single-product-img">
-                                          <a href="#">
-                                            <img className="primary-img" src="../img/product/kids-4.jpg" alt="product" />
-                                            <img className="secondary-img" src="../img/product/men-2.jpg" alt="product" />
-                                          </a>
-                                          <div className="single-product-action">
-                                            <a href="#"><i className="fa fa-external-link" /></a>
-                                            <a href="#"><i className="fa fa-shopping-cart" /></a>
-                                          </div>
-                                        </div>
-                                        <div className="single-product-content">
-                                          <div className="product-content-left">
-                                            <h2><a href="#">EXCLUSIVE STYLE</a></h2>
-                                            <p>Jacket’s</p>
-                                          </div>
-                                          <div className="product-content-right">
-                                            <h3>$27.00</h3>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div></div><div className="owl-item" style={{width: '293px'}}><div className="col-md-4">
-                                      <div className="single-product">
-                                        <div className="single-product-img">
-                                          <a href="#">
-                                            <img className="primary-img" src="../img/product/single-product-1.jpg" alt="product" />
-                                            <img className="secondary-img" src="../img/product/kids-1.jpg" alt="product" />
-                                          </a>
-                                          <div className="single-product-action">
-                                            <a href="#"><i className="fa fa-external-link" /></a>
-                                            <a href="#"><i className="fa fa-shopping-cart" /></a>
-                                          </div>
-                                        </div>
-                                        <div className="single-product-content">
-                                          <div className="product-content-left">
-                                            <h2><a href="#">EXCLUSIVE STYLE</a></h2>
-                                            <p>Jacket’s</p>
-                                          </div>
-                                          <div className="product-content-right">
-                                            <h3>$27.00</h3>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div></div><div className="owl-item" style={{width: '293px'}}><div className="col-md-4">
-                                      <div className="single-product">
-                                        <div className="single-product-img">
-                                          <a href="#">
-                                            <img className="primary-img" src="../img/product/single-product-2.jpg" alt="product" />
-                                            <img className="secondary-img" src="../img/product/women-2.jpg" alt="product" />
-                                          </a>
-                                          <div className="single-product-action">
-                                            <a href="#"><i className="fa fa-external-link" /></a>
-                                            <a href="#"><i className="fa fa-shopping-cart" /></a>
-                                          </div>
-                                        </div>
-                                        <div className="single-product-content">
-                                          <div className="product-content-left">
-                                            <h2><a href="#">EXCLUSIVE STYLE</a></h2>
-                                            <p>Jacket’s</p>
-                                          </div>
-                                          <div className="product-content-right">
-                                            <h3>$27.00</h3>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div></div><div className="owl-item" style={{width: '293px'}}><div className="col-md-4">
-                                      <div className="single-product">
-                                        <div className="single-product-img">
-                                          <a href="#">
-                                            <img className="primary-img" src="../img/product/single-product-3.jpg" alt="product" />
-                                            <img className="secondary-img" src="../img/product/men-2.jpg" alt="product" />
-                                          </a>
-                                          <div className="single-product-action">
-                                            <a href="#"><i className="fa fa-external-link" /></a>
-                                            <a href="#"><i className="fa fa-shopping-cart" /></a>
-                                          </div>
-                                        </div>
-                                        <div className="single-product-content">
-                                          <div className="product-content-left">
-                                            <h2><a href="#">EXCLUSIVE STYLE</a></h2>
-                                            <p>Jacket’s</p>
-                                          </div>
-                                          <div className="product-content-right">
-                                            <h3>$27.00</h3>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div></div></div></div>
-                              <div className="owl-controls clickable"><div className="owl-buttons"><div className="owl-prev"><i className="fa fa-chevron-left icon-white" /></div><div className="owl-next"><i className="fa fa-chevron-right icon-white" /></div></div></div></div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>

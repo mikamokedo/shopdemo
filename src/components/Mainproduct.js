@@ -11,10 +11,12 @@ class MainProduct extends Component {
       }
   }
   
-
-componentWillMount() {
+componentDidMount(){
   this.props.feetListProducts();
 }
+
+
+
 componentWillReceiveProps(nexprops){
   if(nexprops.listProducts && nexprops.listProducts.length > 0){
     this.setState({
@@ -28,14 +30,20 @@ componentWillReceiveProps(nexprops){
 prinListItem = () =>{
   let xhtml = null;
   let listProducts = this.state.listProducts;
-  xhtml = listProducts.map((item) =>{
-    return(<Iteam item ={item}/>) 
+  xhtml = listProducts.map((item,key) =>{
+    return(<Iteam item ={item} key={key}/>) 
   })
   return xhtml;
 }
 
 
-    render() {
+
+
+
+ 
+render() {
+
+
         return (
             <div className="product-area">
             <div className="container">

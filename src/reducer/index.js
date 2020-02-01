@@ -4,6 +4,8 @@ import loading from './loading';
 import singleProducts from './singleProduc';
 import fillterValueText from './fillter1';
 import fillterValueSelect from './fillter2';
+import addToCart from './addcart';
+import statusCheckout from './checkout';
 
 
 const rootReducer = combineReducers({
@@ -11,7 +13,9 @@ const rootReducer = combineReducers({
     loading,
     singleProducts,
     fillterValueText,
-    fillterValueSelect
+    fillterValueSelect,
+    addToCart,
+    statusCheckout
 });
 
 export default rootReducer;

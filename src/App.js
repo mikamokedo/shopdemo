@@ -1,10 +1,7 @@
 import React, { Component }  from 'react';
 import Header from './components/Header.js';
-import Menu from './components/Menu.js';
 import Footer from './components/Footer.js';
-import Index from './components/Index.js';
 import routers from './routers/routers.js';
-import firebase from './firebaseConfig';
 import Loading from './components/Loading';
 import {connect} from 'react-redux';
 import {

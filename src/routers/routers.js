@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Index from '../components/Index.js';
 import Checkout from '../components/Checkout.js';
 import Contact from '../components/Contact.js';
 import NotFound from '../components/Notfound.js';
-import SupportArea from '../components/SuportArea.js';
 import SingleProduct from '../components/SingleProduct.js';
+import OrderComplete from '../components/Ordercomplete';
 
 
 
@@ -18,7 +18,7 @@ const routers = [
     {
         path:'/Checkout',
         exact: true,
-        component: () => <Checkout />
+        component: (match) => <Checkout history={match}/>
     },
     {
         path:'/Contact',
@@ -31,10 +31,16 @@ const routers = [
         component: (match) => <SingleProduct match={match}/>
     },
     {
+        path:'/order-success.html',
+        exact: true,
+        component: () => <OrderComplete />
+    },
+    {
         path:'',
         exact: true,
         component: () => <NotFound />
     }
+    
 
 ];
 

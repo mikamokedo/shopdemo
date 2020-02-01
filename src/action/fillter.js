@@ -25,3 +25,22 @@ export const fillterSelectSuccess = (value) =>{
         payload:{value}
     }
 }
+
+export const fillterSubmit = () =>{
+    return {
+        type: CONSTANT.SUBMIT_SEARCH
+    }
+}
+export const fillterSubmitSuccess = (value) =>{
+    return {
+        type: CONSTANT.SUBMIT_SEARCH_SUCCESS,
+        payload: {
+            value
+        }
+    }
+}
+export const resetfill = () =>{
+    return {
+        type: CONSTANT.RESET_FILTER
+    }
+}

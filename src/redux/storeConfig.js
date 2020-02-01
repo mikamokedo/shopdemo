@@ -11,7 +11,7 @@ if (process.env.NODE_ENV === 'development') {
 }
 
 
-const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware();
 
 const configStore = createStore(
         rootReducer,
