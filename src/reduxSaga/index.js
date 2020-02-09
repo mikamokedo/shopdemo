@@ -1,9 +1,11 @@
 import {takeEvery,put,call,takeLatest,select} from 'redux-saga/effects';
 import {change_loading_status,change_loading_status_false} from '../action/loading';
 import {feetListProductsSuccess,feetSingleProductsSuccess} from '../action/products';
-import {getMethod,getSingleMethod,fillterbycate} from '../api/index';
+import {getMethod,getSingleMethod,fillterbycate,uploadImgFirebase} from '../api/index';
 import {fillterTextSuccess,fillterSelectSuccess,resetfill} from '../action/fillter';
+import firebase from '../firebaseConfig';
 import * as CONSTANT from '../constant/index';
+import {pushurlTostore} from '../action/addItem';
 
 function* getListProductsFromFirebase(){
     yield put(change_loading_status());
@@ -101,7 +103,13 @@ function* submitFillterButton(){
     yield put(change_loading_status_false());
     }
 }
-
+function * pustToFireBase (item){
+    const fileImg = item.payload.item.filechoice;
+    let data = yield call(uploadImgFirebase,fileImg);
+    yield put(pushurlTostore(data));
+ 
+ 
+}
 
 
 
@@ -111,7 +119,8 @@ function * rootSaga (){
     yield takeEvery(CONSTANT.FEET_SINGLE_PRODUCTS,feetSingleProductFirebase);
     yield takeLatest(CONSTANT.ADD_FILLTER_TEXT,addFillterTexttostore);
     yield takeLatest(CONSTANT.ADD_FILLTER_SELECT,addFillterSelecttostore);
-    yield takeLatest(CONSTANT.SUBMIT_SEARCH,submitFillterButton)
+    yield takeLatest(CONSTANT.SUBMIT_SEARCH,submitFillterButton);
+    yield takeLatest(CONSTANT.PUSH_ITEM_TO_STORE,pustToFireBase);
 }
 
 export default rootSaga;

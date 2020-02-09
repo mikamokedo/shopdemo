@@ -6,6 +6,8 @@ import fillterValueText from './fillter1';
 import fillterValueSelect from './fillter2';
 import addToCart from './addcart';
 import statusCheckout from './checkout';
+import itemadd from './additem';
+
 
 
 const rootReducer = combineReducers({
@@ -15,7 +17,8 @@ const rootReducer = combineReducers({
     fillterValueText,
     fillterValueSelect,
     addToCart,
-    statusCheckout
+    statusCheckout,
+    itemadd
 });
 
 export default rootReducer;

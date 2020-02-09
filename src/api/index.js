@@ -39,3 +39,24 @@ export const getSingleMethod = (id) =>{
    return json;
 
 }
+export const uploadImgFirebase = (file) =>{
+  const storage = firebase.storage();
+  const uploadTask =  storage.ref(`/shopimage/${file.name}`).put(file);
+  return new Promise((resolve, reject) => {
+    uploadTask.on(
+     'state_changed',
+     function(snapshot) {
+     },
+     function(error) {
+       reject(error);  
+       alert(error);
+     },
+     function() {
+       const downloadURL = uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+          return downloadURL;
+      });
+       resolve(downloadURL); 
+     }
+   );
+ });
+}

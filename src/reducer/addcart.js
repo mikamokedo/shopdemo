@@ -30,6 +30,10 @@ const addToCart = (state = InitialState, action) => {
                localStorage.setItem('cart',JSON.stringify(state));
                return [...state];
          }
+         case CONSTANT.EARSE_CART:
+            state = [];
+            localStorage.removeItem('cart');
+            return [...state];
          case CONSTANT.DELETE_CART:
             let item2  = action.payload.item;
             let index2 = findIndex(item2,state);

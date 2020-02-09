@@ -5,6 +5,7 @@ import Contact from '../components/Contact.js';
 import NotFound from '../components/Notfound.js';
 import SingleProduct from '../components/SingleProduct.js';
 import OrderComplete from '../components/Ordercomplete';
+import Admin from '../components/Admin';
 
 
 
@@ -34,6 +35,11 @@ const routers = [
         path:'/order-success.html',
         exact: true,
         component: () => <OrderComplete />
+    },
+    {
+        path:'/admin',
+        exact: true,
+        component: () => <Admin />
     },
     {
         path:'',

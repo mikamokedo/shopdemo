@@ -3,6 +3,7 @@ import CheckoutItem from './CheckoutItem';
 import {connect} from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {off_checkout_success} from '../action/redirect';
+import {easeCart} from '../action/addcart';
 import {
   Redirect
 } from "react-router-dom";
@@ -57,9 +58,8 @@ if(this.state.firstName && this.state.lasttName && this.state.address && this.st
   this.setState({
     flag:true
   });
+  this.props.earseCart();
 }
-    
-    
     }
 
 
@@ -193,7 +193,8 @@ if(this.state.firstName && this.state.lasttName && this.state.address && this.st
     }
     const mapDispatchToProps = (dispatch) =>{
       return {
-          changestatusCheckoutAction : bindActionCreators(off_checkout_success,dispatch)
+          changestatusCheckoutAction : bindActionCreators(off_checkout_success,dispatch),
+          earseCart : bindActionCreators(easeCart,dispatch)
       }
       
     } 

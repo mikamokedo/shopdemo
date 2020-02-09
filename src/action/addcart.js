@@ -15,3 +15,8 @@ export const deleteCart = (item) =>{
         }
     }
 }
+export const easeCart = () =>{
+    return {
+        type : CONSTANT.EARSE_CART
+    }
+}

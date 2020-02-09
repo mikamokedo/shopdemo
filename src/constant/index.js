@@ -16,5 +16,7 @@ export const ADDTO_CART = "ADDTO_CART";
 export const ADDTO_CART_SUCCES = "ADDTO_CART_SUCCES";
 export const DELETE_CART = "DELETE_CART";
 export const OFF_CHECKOUT = "OFF_CHECKOUT";
-
+export const EARSE_CART  = "EARSE_CART";
+export const PUSH_ITEM_TO_STORE = "PUSH_ITEM_TO_STORE"; 
+export const PUSH_URL = "PUSH_URL";
 
