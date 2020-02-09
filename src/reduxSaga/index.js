@@ -1,11 +1,10 @@
 import {takeEvery,put,call,takeLatest,select} from 'redux-saga/effects';
 import {change_loading_status,change_loading_status_false} from '../action/loading';
 import {feetListProductsSuccess,feetSingleProductsSuccess} from '../action/products';
-import {getMethod,getSingleMethod,fillterbycate,uploadImgFirebase} from '../api/index';
+import {getMethod,getSingleMethod,fillterbycate,uploadImgFirebase,pushProductToFirebase} from '../api/index';
 import {fillterTextSuccess,fillterSelectSuccess,resetfill} from '../action/fillter';
-import firebase from '../firebaseConfig';
 import * as CONSTANT from '../constant/index';
-import {pushurlTostore} from '../action/addItem';
+
 
 function* getListProductsFromFirebase(){
     yield put(change_loading_status());
@@ -104,11 +103,15 @@ function* submitFillterButton(){
     }
 }
 function * pustToFireBase (item){
+    yield put(change_loading_status());
     const fileImg = item.payload.item.filechoice;
-    let data = yield call(uploadImgFirebase,fileImg);
-    yield put(pushurlTostore(data));
- 
- 
+    let url = yield call(uploadImgFirebase,fileImg);
+   let itemnoUrl =  yield select(state => state.itemadd);
+   delete itemnoUrl.filechoice;
+   itemnoUrl.image = url;
+   yield call(pushProductToFirebase,itemnoUrl);
+   yield put(change_loading_status_false());
+
 }
 
 

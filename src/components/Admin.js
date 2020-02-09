@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {pushItemTostore} from '../action/addItem';
+import ItemTable from './ItemTable';
 
 
 
 
-export class Admin extends Component {
+class Admin extends Component {
     constructor(props) {
         super(props);
         this.state = {};
@@ -50,7 +51,7 @@ getInput = (e) =>{
 
     render() {
         return (
-                    <div className="container">
+                    <div className="container padding30">
                             <div className="form-group">
                               <label for="">Name Product</label>
                               <input type="text" className="form-control" onChange={(e) => this.getInput(e)}name="name"/>
@@ -58,6 +59,7 @@ getInput = (e) =>{
                             <div className="form-group">
                               <label for="">Category</label>
                               <select className="form-control" name="cate" onChange={(e) => this.getInput(e)}>
+                              <option>Select Category</option>
                                 <option value="men">MEN</option>
                                 <option value="women">WOMEN</option>
                                 <option value="kid">KID</option>
@@ -79,15 +81,35 @@ getInput = (e) =>{
                               <label for="">rate Product</label>
                               <input type="text" className="form-control" onChange={(e) => this.getInput(e)}name="rate"/>
                             </div>
-                     
-                <div className="form-group">
-                  <label>Tai anh len</label>
-                  <input type="file" className="form-control-file" name="" placeholder="" aria-describedby="fileHelpId" onChange={(e) => this.uploadfile(e)}/>
-                  
-                </div>
+                                
+                            <div className="form-group">
+                            <label>Tai anh len</label>
+                            <input type="file" className="form-control-file" name="" placeholder="" aria-describedby="fileHelpId" onChange={(e) => this.uploadfile(e)}/>
+                            
+                            </div>
                         <button onClick={this.onsubmitForm} type="submit" className="btn btn-success">submit</button>
 
-                </div>
+                            <table class="table table-striped table-inverse table-responsive font_16">
+                                <thead class="thead-inverse">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Cate</th>
+                                        <th>Description</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Quanity</th>
+                                        <th>rate</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <ItemTable/>
+          
+
+                                    </tbody>
+                            </table>
+
+                     </div>
 
         )
     }

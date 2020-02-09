@@ -60,3 +60,10 @@ export const uploadImgFirebase = (file) =>{
    );
  });
 }
+export const pushProductToFirebase = (product) =>{
+  firebase.firestore().collection('listproduct').add(product).then((doc) =>{
+      console.log(doc);
+  }).catch((error)=>{
+    console.log(error)
+  })
+};

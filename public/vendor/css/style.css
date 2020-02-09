@@ -3380,3 +3380,23 @@ body.home-2{
 .padding30{
 	padding: 30px 0
 }
+.font_20{
+	font-size: 30px;
+	cursor: pointer;
+}
+.font_16 td {
+	font-size: 16px;
+}
+
+.font_16 th {
+	font-size: 16px;
+}
+.td_icon{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+.td_icon i:first-child{
+	margin-right: 10px;
+}
