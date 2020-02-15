@@ -67,3 +67,15 @@ export const pushProductToFirebase = (product) =>{
     console.log(error)
   })
 };
+
+export const deleteItemFirebase = (id) =>{
+return new Promise((resolve,reject) =>{
+  firebase.firestore().collection('listproduct').doc(id).delete().then(function() {
+    resolve('success');
+}).catch(function(error) {
+  reject(error);
+});
+})
+};
+
+

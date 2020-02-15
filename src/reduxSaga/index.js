@@ -1,7 +1,7 @@
 import {takeEvery,put,call,takeLatest,select} from 'redux-saga/effects';
 import {change_loading_status,change_loading_status_false} from '../action/loading';
-import {feetListProductsSuccess,feetSingleProductsSuccess} from '../action/products';
-import {getMethod,getSingleMethod,fillterbycate,uploadImgFirebase,pushProductToFirebase} from '../api/index';
+import {feetListProductsSuccess,feetSingleProductsSuccess,feetListProducts} from '../action/products';
+import {getMethod,getSingleMethod,fillterbycate,uploadImgFirebase,pushProductToFirebase,deleteItemFirebase} from '../api/index';
 import {fillterTextSuccess,fillterSelectSuccess,resetfill} from '../action/fillter';
 import * as CONSTANT from '../constant/index';
 
@@ -109,11 +109,19 @@ function * pustToFireBase (item){
    let itemnoUrl =  yield select(state => state.itemadd);
    delete itemnoUrl.filechoice;
    itemnoUrl.image = url;
-   yield call(pushProductToFirebase,itemnoUrl);
+ yield call(pushProductToFirebase,itemnoUrl);
+ yield put(feetListProducts());
    yield put(change_loading_status_false());
 
 }
 
+function * deleteItem(id){
+   let result =  yield call(deleteItemFirebase,id.id);
+   if(result){
+    yield put(feetListProducts());
+   }
+
+}
 
 
 
@@ -124,6 +132,7 @@ function * rootSaga (){
     yield takeLatest(CONSTANT.ADD_FILLTER_SELECT,addFillterSelecttostore);
     yield takeLatest(CONSTANT.SUBMIT_SEARCH,submitFillterButton);
     yield takeLatest(CONSTANT.PUSH_ITEM_TO_STORE,pustToFireBase);
+    yield takeLatest(CONSTANT.DELETE_ITEM, deleteItem);
 }
 
 export default rootSaga;

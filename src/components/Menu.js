@@ -13,7 +13,7 @@ class Menu extends Component {
                 <nav>
                   <ul>
                     <li><NavLink to="/" exact={true} >Home</NavLink></li>
-                    <li><NavLink to="/contact">contact</NavLink></li>
+                    <li><NavLink to="/admin">Admin</NavLink></li>
                   </ul>
                 </nav>
               </div>

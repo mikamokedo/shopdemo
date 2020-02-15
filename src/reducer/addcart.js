@@ -14,6 +14,7 @@ const findIndex = (item,state) =>{
 }
 const addToCart = (state = InitialState, action) => {
     switch (action.type) {
+        
         case CONSTANT.ADDTO_CART:
          let item  = action.payload.item;
          let temp = state;

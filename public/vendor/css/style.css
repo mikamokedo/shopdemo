@@ -3400,3 +3400,6 @@ body.home-2{
 .td_icon i:first-child{
 	margin-right: 10px;
 }
+.maxwidth{
+	width: 200px;
+}

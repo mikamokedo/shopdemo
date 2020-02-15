@@ -19,4 +19,5 @@ export const OFF_CHECKOUT = "OFF_CHECKOUT";
 export const EARSE_CART  = "EARSE_CART";
 export const PUSH_ITEM_TO_STORE = "PUSH_ITEM_TO_STORE"; 
 export const PUSH_URL = "PUSH_URL";
+export const DELETE_ITEM = "DELETE_ITEM";
 

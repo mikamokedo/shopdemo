@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import {pushItemTostore} from '../action/addItem';
 import ItemTable from './ItemTable';
+import {feetListProducts} from '../action/products';
 
 
 
@@ -44,8 +45,19 @@ getInput = (e) =>{
         [name] : value
     })
 }
+componentDidMount(){
+    this.props.feetListProducts();
+  }
 
 
+printlistProduct = () =>{
+    let xhtml = null;
+   let {listProducts} = this.props;
+    xhtml = listProducts.map((item,key)=>{
+        return <ItemTable item={item} key={key}/>
+    })
+    return xhtml;
+}
 
 
 
@@ -53,11 +65,11 @@ getInput = (e) =>{
         return (
                     <div className="container padding30">
                             <div className="form-group">
-                              <label for="">Name Product</label>
+                              <label>Name Product</label>
                               <input type="text" className="form-control" onChange={(e) => this.getInput(e)}name="name"/>
                             </div>
                             <div className="form-group">
-                              <label for="">Category</label>
+                              <label>Category</label>
                               <select className="form-control" name="cate" onChange={(e) => this.getInput(e)}>
                               <option>Select Category</option>
                                 <option value="men">MEN</option>
@@ -66,19 +78,19 @@ getInput = (e) =>{
                               </select>
                             </div>
                             <div className="form-group">
-                              <label for="">descript Product</label>
+                              <label>descript Product</label>
                               <input type="text" className="form-control" onChange={(e) => this.getInput(e)}name="descript"/>
                             </div>
                             <div className="form-group">
-                              <label for="">price Product</label>
+                              <label>price Product</label>
                               <input type="text" className="form-control" onChange={(e) => this.getInput(e)}name="price"/>
                             </div>
                             <div className="form-group">
-                              <label for="">quantity Product</label>
+                              <label>quantity Product</label>
                               <input type="text" className="form-control" onChange={(e) => this.getInput(e)}name="quantity"/>
                             </div>
                             <div className="form-group">
-                              <label for="">rate Product</label>
+                              <label>rate Product</label>
                               <input type="text" className="form-control" onChange={(e) => this.getInput(e)}name="rate"/>
                             </div>
                                 
@@ -89,8 +101,8 @@ getInput = (e) =>{
                             </div>
                         <button onClick={this.onsubmitForm} type="submit" className="btn btn-success">submit</button>
 
-                            <table class="table table-striped table-inverse table-responsive font_16">
-                                <thead class="thead-inverse">
+                            <table className="table table-striped table-inverse table-responsive font_16">
+                                <thead className="thead-inverse">
                                     <tr>
                                         <th>Name</th>
                                         <th>Cate</th>
@@ -103,7 +115,7 @@ getInput = (e) =>{
                                     </thead>
                                     <tbody>
 
-                                        <ItemTable/>
+                                       {this.printlistProduct()}
           
 
                                     </tbody>
@@ -117,12 +129,13 @@ getInput = (e) =>{
 
 const mapStateToProps = (state) =>{
     return {
-
+        listProducts : state.ListProducts
     }
 }
 const mapDispatchToProps = (dispatch) =>{
     return {
        pushItem : bindActionCreators(pushItemTostore,dispatch),
+       feetListProducts : bindActionCreators(feetListProducts,dispatch)
     }
 }
 
