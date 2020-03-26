@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import Menu from './Menu.js';
 import { bindActionCreators } from 'redux';
 import {fillterText,fillterSelect,fillterSubmit} from '../action/fillter';
+import {changeStatusOpenFormAction,changeStatusOpenFormLoginAction} from '../action/loginForm';
 import {connect} from 'react-redux';
 import Cart from './Cart';
+import Register from './Register';
+import Login from './Login.js';
+import Usercontrol from './Usercontrol.js';
 class Header extends Component {
   onSelect = (event) =>{
     let name = event.target.name;
@@ -24,6 +28,19 @@ class Header extends Component {
   submitSearch = () =>{
     this.props.fillterSubmitAction();
   }
+
+
+
+  printTheFormRegis = () =>{
+   let xhtml =  this.props.formLogin.openRegister ? <Register /> : null;
+   return xhtml;
+  }
+
+  printTheFormLogin = () =>{
+    let xhtml =  this.props.formLogin.openLogin ? <Login /> : null;
+    return xhtml;
+   }
+
 
     render() {
         return (
@@ -58,6 +75,9 @@ class Header extends Component {
                       <button type="button" onClick ={() => this.submitSearch()}><i className="fa fa-search"/></button>
                     </form>
                   </div>
+                  <div className="account_form">
+                    <Usercontrol />
+                  </div>
                 <Cart />
                 </div>
               </div>
@@ -68,6 +88,10 @@ class Header extends Component {
 
 
       <Menu />
+      {this.printTheFormRegis()}
+      {this.printTheFormLogin()}
+
+
       </div>
         );
     }
@@ -76,14 +100,14 @@ const mapStateToProps = (state) =>{
   return{
     fillterValueText : state.fillterValueText,
     fillterValueSelect : state.fillterValueSelect,
+    formLogin : state.formLogin
   }
 }
 const mapDispatchToProps = (dispatch) =>{
   return {
     fillterTextAction:bindActionCreators(fillterText,dispatch),
     fillterSelectAction:bindActionCreators(fillterSelect,dispatch),
-    fillterSubmitAction:bindActionCreators(fillterSubmit,dispatch)
-
+    fillterSubmitAction:bindActionCreators(fillterSubmit,dispatch),
   }
   
 } 

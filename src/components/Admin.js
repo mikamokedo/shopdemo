@@ -64,6 +64,7 @@ printlistProduct = () =>{
     render() {
         return (
                     <div className="container padding30">
+                           <div className="add_form">
                             <div className="form-group">
                               <label>Name Product</label>
                               <input type="text" className="form-control" onChange={(e) => this.getInput(e)}name="name"/>
@@ -100,6 +101,7 @@ printlistProduct = () =>{
                             
                             </div>
                         <button onClick={this.onsubmitForm} type="submit" className="btn btn-success">submit</button>
+                        </div>
 
                             <table className="table table-striped table-inverse table-responsive font_16">
                                 <thead className="thead-inverse">

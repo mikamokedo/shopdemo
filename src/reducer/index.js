@@ -7,6 +7,7 @@ import fillterValueSelect from './fillter2';
 import addToCart from './addcart';
 import statusCheckout from './checkout';
 import itemadd from './additem';
+import formLogin from './formLogin';
 
 
 
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     fillterValueSelect,
     addToCart,
     statusCheckout,
-    itemadd
+    itemadd,
+    formLogin
 });
 
 export default rootReducer;

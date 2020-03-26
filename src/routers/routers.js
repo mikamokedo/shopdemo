@@ -1,7 +1,6 @@
 import React from 'react';
 import Index from '../components/Index.js';
 import Checkout from '../components/Checkout.js';
-import Contact from '../components/Contact.js';
 import NotFound from '../components/Notfound.js';
 import SingleProduct from '../components/SingleProduct.js';
 import OrderComplete from '../components/Ordercomplete';
@@ -20,11 +19,6 @@ const routers = [
         path:'/Checkout',
         exact: true,
         component: (match) => <Checkout history={match}/>
-    },
-    {
-        path:'/Contact',
-        exact: true,
-        component: () => <Contact />
     },
     {
         path:'/:cate/:slug.:id.html',

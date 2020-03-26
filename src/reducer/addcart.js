@@ -43,6 +43,7 @@ const addToCart = (state = InitialState, action) => {
             let temp2 = state;
             temp2.splice(index2,1);
             state = temp2;
+            localStorage.setItem('cart',JSON.stringify(temp2));
                return [...state]
            }
            break;

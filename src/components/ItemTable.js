@@ -20,7 +20,7 @@ onDelete = () =>{
             <td>{this.props.item.price}</td>
             <td>{this.props.item.quantity}</td>
             <td>{this.props.item.rate}</td>
-            <td className="td_icon" ><i className="font_20 fa fa-edit text-warning"></i><i className="fa fa-trash text-danger font_20" onClick={this.onDelete}></i></td>
+            <td className="td_icon" ><i className="fa fa-trash text-danger font_20" onClick={this.onDelete}></i></td>
         </tr>
         )
     }
